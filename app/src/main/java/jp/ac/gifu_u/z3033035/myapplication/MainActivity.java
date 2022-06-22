@@ -1,14 +1,17 @@
 package jp.ac.gifu_u.z3033035.myapplication;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.GridView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements AdapterView.OnItemClickListener{
 
     private TextView titleText;
     private Button prevButton, nextButton;
@@ -41,6 +44,11 @@ public class MainActivity extends AppCompatActivity {
         mCalendarAdapter = new CalendarAdapter(this);
         calendarGridView.setAdapter(mCalendarAdapter);
         titleText.setText(mCalendarAdapter.getTitle());
+        calendarGridView.setOnItemClickListener(this);
     }
-
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        Intent intent = new Intent(getApplicationContext(), Memo.class);
+        intent.putExtra("date", mCalendarAdapter.getItem(position).toString());
+        startActivity(intent);
+    }
 }

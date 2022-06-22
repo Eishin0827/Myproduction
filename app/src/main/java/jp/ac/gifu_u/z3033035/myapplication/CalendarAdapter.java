@@ -1,5 +1,7 @@
 package jp.ac.gifu_u.z3033035.myapplication;
 
+import static java.sql.Types.NULL;
+
 import android.content.Context;
 import android.graphics.Color;
 import android.view.LayoutInflater;
@@ -22,7 +24,7 @@ public class CalendarAdapter extends BaseAdapter {
     private DateManager mDateManager;
     private LayoutInflater mLayoutInflater;
 
-    //カスタムセルを拡張したらここでWigetを定義
+
     private static class ViewHolder {
         public TextView dateText;
     }
@@ -88,12 +90,11 @@ public class CalendarAdapter extends BaseAdapter {
 
     @Override
     public long getItemId(int position) {
-        return 0;
+        return position;
     }
-
     @Override
     public Object getItem(int position) {
-        return null;
+        return dateArray.get(position);
     }
 
     //表示月を取得
