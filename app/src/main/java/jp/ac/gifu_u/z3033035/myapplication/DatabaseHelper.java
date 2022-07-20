@@ -25,9 +25,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         String sql = sb.toString();
         db.execSQL(sql);
     }
-    public void onUpgrade(SQLiteDatabase db,int oldVersion,int newVersion) {
-
-    }
 
 
 }
