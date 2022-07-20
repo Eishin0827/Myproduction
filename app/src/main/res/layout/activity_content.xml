@@ -4,29 +4,124 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/gettext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Textview"></TextView>
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
-        android:layout_marginTop="5dp"
-        android:text="予定を入力してください"
-        android:textSize="25sp"/>
+        android:text="シフトを入力してください"
 
-    <EditText
-        android:id="@+id/etInput"
+        ></TextView>
+
+    <LinearLayout
+        android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:layout_marginBottom="25dp"
-        android:inputType="text"
-        android:minHeight="48dp"
-        android:background="#ffffff"
-         />
+        android:layout_height="wrap_content">
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="29dp"
+            android:text="勤務時間" />
+        <EditText
+            android:id="@+id/starthour"
+            android:layout_width="70dp"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:minHeight="48dp"
+            android:maxLength="2"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="29dp"
+            android:text=":" />
+        <EditText
+            android:id="@+id/startmin"
+            android:layout_width="70dp"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:minHeight="48dp"
+            android:maxLength="2"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="29dp"
+            android:text="~" />
+        <EditText
+            android:id="@+id/endhour"
+            android:layout_width="70dp"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:minHeight="48dp"
+            android:maxLength="2"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="29dp"
+            android:text=":" />
+        <EditText
+            android:id="@+id/endmin"
+            android:layout_width="70dp"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:minHeight="48dp"
+            android:maxLength="2"/>
+
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="29dp"
+            android:text="バイト先名" />
+
+        <EditText
+            android:id="@+id/bitename"
+            android:layout_width="335dp"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:minHeight="48dp" />
+
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="29dp"
+            android:text="時給" />
+
+        <EditText
+            android:id="@+id/salaly"
+            android:layout_width="335dp"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:minHeight="48dp" />
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
     <Button
         android:id="@+id/backbutton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:onClick="onBackButtonClick"
         android:text="入力完了" />
+       <Button
+           android:id="@+id/cbutton"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           />
+    </LinearLayout>
 </LinearLayout>

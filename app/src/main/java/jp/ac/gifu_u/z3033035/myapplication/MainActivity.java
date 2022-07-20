@@ -17,6 +17,11 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     private Button prevButton, nextButton;
     private CalendarAdapter mCalendarAdapter;
     private GridView calendarGridView;
+    public static final String EH="";
+    public static final String EM="";
+    public static final String SH="";
+    public static final String SM="";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,8 +52,8 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         calendarGridView.setOnItemClickListener(this);
     }
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        Intent intent = new Intent(getApplicationContext(), Memo.class);
-        intent.putExtra("date", mCalendarAdapter.getItem(position).toString());
-        startActivity(intent);
+        Intent intent = new Intent(getApplicationContext(), Memo.class);//Memo.javaに遷移
+        intent.putExtra("date", mCalendarAdapter.getItem(position).toString());//カレンダーの画面で押した日付も引き渡す
+        startActivity(intent);//遷移開始
     }
 }
