@@ -2,7 +2,6 @@ package jp.ac.gifu_u.z3033035.myapplication;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
@@ -10,6 +9,9 @@ import android.widget.GridView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import java.text.SimpleDateFormat;
+import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity implements AdapterView.OnItemClickListener{
 
@@ -52,8 +54,10 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         calendarGridView.setOnItemClickListener(this);
     }
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyyMd", Locale.US);
         Intent intent = new Intent(getApplicationContext(), Memo.class);//Memo.javaに遷移
-        intent.putExtra("date", mCalendarAdapter.getItem(position).toString());//カレンダーの画面で押した日付も引き渡す
+        intent.putExtra("date", dateFormat.format(mCalendarAdapter.getItem(position)).toString());//カレンダーの画面で押した日付も引き渡す
+        intent.putExtra("id",mCalendarAdapter.getItem(position).toString());
         startActivity(intent);//遷移開始
     }
 }

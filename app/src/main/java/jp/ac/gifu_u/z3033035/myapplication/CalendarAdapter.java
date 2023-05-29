@@ -1,18 +1,15 @@
 package jp.ac.gifu_u.z3033035.myapplication;
 
-import static java.sql.Types.NULL;
 
 import android.content.Context;
-import android.database.sqlite.SQLiteDatabase;
+
 import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
 import android.widget.BaseAdapter;
-import android.widget.LinearLayout;
 import android.widget.TextView;
-
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -22,22 +19,27 @@ import java.util.Locale;
 public class CalendarAdapter extends BaseAdapter {
     private List<Date> dateArray = new ArrayList();
     private Context mContext;
-    private DatabaseHelper _helper;
     private DateManager mDateManager;
     private LayoutInflater mLayoutInflater;
-    SQLiteDatabase db=_helper.getWritableDatebase();
+
+
+
+
 
 
     private static class ViewHolder {
-        public TextView dateText;
-        public TextView memoText;
+        public TextView dateText;//日付を表示する用
+        public TextView memoText;//予定を表示する用
+
     }
 
     public CalendarAdapter(Context context){
         mContext = context;
+
         mLayoutInflater = LayoutInflater.from(mContext);
         mDateManager = new DateManager();
         dateArray = mDateManager.getDays();
+
     }
 
     @Override
@@ -47,6 +49,10 @@ public class CalendarAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
+
+
+
+
         ViewHolder holder;
         if (convertView == null) {
             convertView = mLayoutInflater.inflate(R.layout.calendar_cell, null);
@@ -65,9 +71,13 @@ public class CalendarAdapter extends BaseAdapter {
 
         //日付のみ表示させる
         SimpleDateFormat dateFormat = new SimpleDateFormat("d", Locale.US);
+        SimpleDateFormat dateFormat1 = new SimpleDateFormat("yyyyMd",Locale.US);
         holder.dateText.setText(dateFormat.format(dateArray.get(position)));
-        String memo =
-                holder.memoText.setText(memo);
+
+            if(Integer.valueOf(dateFormat1.format(dateArray.get(position)))==Memo._Id) {//カレンダー上の年月日とMemo画面に遷移するときに押した場所の年月日が一致するところにMemoクラスのxを表示する
+                String aaa = Memo.x;
+                holder.memoText.setText(aaa);
+            }
 
         //当月以外のセルをグレーアウト
         if (mDateManager.isCurrentMonth(dateArray.get(position))){

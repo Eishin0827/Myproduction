@@ -7,11 +7,11 @@
         android:id="@+id/dateText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
+
     <TextView
         android:id="@+id/memoText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAlignment="center"
-/>
+        android:layout_width="46dp"
+        android:layout_height="69dp"
+        android:textAlignment="center" />
 
 </RelativeLayout>
